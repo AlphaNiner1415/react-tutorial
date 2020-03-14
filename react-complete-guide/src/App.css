@@ -11,7 +11,7 @@
   font-weight: bold;
 }
 
-.App button { /* button now a tag selector */
+.App button { /* button now a tag selector meaning it will apply to every button inside app class*/
   background-color: green;
   color: white;
   font: inherit;
