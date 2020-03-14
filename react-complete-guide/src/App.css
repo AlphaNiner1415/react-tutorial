@@ -21,7 +21,14 @@
   box-shadow: 0 2px 3px #ccc;
 }
 
-  .Button:hover {
-      background-color: lightgreen;
-      color: black;
-  }
+.Button:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
+.Button.Red {
+  background-color: red;
+}
+.Button.Red:hover {
+  background-color: salmon;
+}

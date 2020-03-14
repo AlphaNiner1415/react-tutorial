@@ -66,9 +66,9 @@ class App extends Component {
         console.log("Was copied!!");
     }
     render() {
-        
-
         let persons = null;
+        let btnClass = [classes.Button]
+
         if ( this.state.showPersons ){
             persons = (
                 <div>
@@ -88,6 +88,7 @@ class App extends Component {
             //     backgroundColor:'salmon',
             //     color: 'black'
             // }
+            btnClass.push(classes.Red)
         }
 
         let assignedClasses = []; 
@@ -103,7 +104,7 @@ class App extends Component {
             <div className={classes.App}>
                 <h1 >Hi I'm a React App</h1>  {/*One root element per component is typical */}
                 <p className={assignedClasses.join(' ')}>This is really working!!</p>
-                <button className={classes.Button} onClick={this.togglePersonsHandler}>Toggle Persons</button> { /*Note 1*/ }
+                <button className={btnClass.join(' ')} onClick={this.togglePersonsHandler}>Toggle Persons</button> { /*Note 1*/ }
                 {persons}
                 
             </div>
