@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
 
 
 //Stateful component, try to have as less of these as possible.
@@ -69,6 +69,11 @@ class App extends Component {
         if ( this.state.showPersons ){
             persons = (
                 <div>
+                    <Persons 
+                        persons={this.state.persons}
+                        clicked={this.deletePersonHandler}
+                        changed={this.nameChangeHandler}
+                    />
                     {this.state.persons.map((eachPerson, index) => {
                         return <Person 
                             click={this.deletePersonHandler.bind(this, index)}
