@@ -96,9 +96,7 @@ class App extends Component {
         return (
             
             <div className={classes.App}>
-                <h1 >Hi I'm a React App</h1>  {/*One root element per component is typical */}
-                <p className={assignedClasses.join(' ')}>This is really working!!</p>
-                <button className={btnClass} onClick={this.togglePersonsHandler}>Toggle Persons</button> { /*Note 1*/ }
+                { /*Note 1*/ }
                 {persons}
                 
             </div>

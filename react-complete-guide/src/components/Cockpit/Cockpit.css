@@ -1,0 +1,29 @@
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.Cockpit button { /* button now a tag selector meaning it will Cockpitly to every button inside Cockpit class*/
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 3px #ccc;
+}
+
+.Cockpit button:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
+.Cockpit button.Red {
+  background-color: red;
+}
+.Cockpit button.Red:hover {
+  background-color: salmon;
+}
