@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Person.css';
 //    Dumb/ Presentational components because they have no internal logic or states.
 
-
+//Finished, no need to split into smaller components
 const person = (props) => {
   return (
     
