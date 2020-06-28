@@ -45,7 +45,7 @@ class App extends Component {
     }
     nameChangeHandler = (event, id ) => {
         const personIndex = this.state.persons.findIndex(p => {
-            return p.userId === id; //Logical Error userId is undefined
+            return p.id === id; //Logical Error userId is undefined
         });
         //const person = Object.assign({}, this.state.persons[personIndex]);
         const templatePerson = {
