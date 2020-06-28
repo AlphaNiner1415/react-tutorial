@@ -71,12 +71,12 @@ class App extends Component {
             persons = (
                 <div>
                     {this.state.persons.map((eachPerson, index) => {
-                        return <ErrorBoundary key={eachPerson.id}>
-                        <Person 
+                        return <Person 
                             click={this.deletePersonHandler.bind(this, index)}
                             name={eachPerson.name} 
-                            age={eachPerson.age}  
-                            changed={(event) => this.nameChangeHandler(event, eachPerson.id)} /></ErrorBoundary> //Keys help react know what to render easily without having to inspect deeply inside one element
+                            age={eachPerson.age}
+                            key={eachPerson.id}  
+                            changed={(event) => this.nameChangeHandler(event, eachPerson.id)} /> //Keys help react know what to render easily without having to inspect deeply inside one element
                     })}
                    
                 </div>
