@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
-import Person from './Person/Person';
+import Person from '../components/Persons/Person/Person';
 
 
 //Stateful component, try to have as less of these as possible.
