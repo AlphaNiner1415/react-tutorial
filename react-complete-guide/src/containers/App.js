@@ -74,14 +74,6 @@ class App extends Component {
                         clicked={this.deletePersonHandler}
                         changed={this.nameChangeHandler}
                     />
-                    {this.state.persons.map((eachPerson, index) => {
-                        return <Person 
-                            click={this.deletePersonHandler.bind(this, index)}
-                            name={eachPerson.name} 
-                            age={eachPerson.age}
-                            key={eachPerson.id}  
-                            changed={(event) => this.nameChangeHandler(event, eachPerson.id)} /> //Keys help react know what to render easily without having to inspect deeply inside one element
-                    })}
                    
                 </div>
             );
