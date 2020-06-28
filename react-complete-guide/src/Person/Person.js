@@ -4,17 +4,23 @@ import classes from './Person.css';
 
 
 const person = (props) => {
-    return (
-      // <div title= {props.name} className="Person" style={style}>
-      <div className={classes.Person}>
-        <p onClick={props.click}>
-          I'm {props.name} and I am {props.age} years old!!!
-        </p>
-        <p>{props.children}</p>{" "}
-        {/*Anything passed in between the opening and closing tags*/}
-        <input type="text" onChange={props.changed} value={props.name} />
-      </div>
-    );
+  const rnd = Math.random();
+
+  if (rnd > 0.7) {
+    throw new Error( 'Something went wrong!!!' );
+  }
+  return (
+    
+    // <div title= {props.name} className="Person" style={style}>
+    <div className={classes.Person}>
+      <p onClick={props.click}>
+        I'm {props.name} and I am {props.age} years old!!!
+      </p>
+      <p>{props.children}</p>{" "}
+      {/*Anything passed in between the opening and closing tags*/}
+      <input type="text" onChange={props.changed} value={props.name} />
+    </div>
+  );
     
 }
 
