@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
-
+import Cockpit from '../components/Cockpit/Cockpit';
 
 //Stateful component, try to have as less of these as possible.
 class App extends Component {
@@ -64,38 +65,26 @@ class App extends Component {
 
     render() {
         let persons = null;
-        let btnClass = '';
-
+    
         if ( this.state.showPersons ){
-            persons = (
-                <div>
-                    <Persons 
+            persons = <Persons 
                         persons={this.state.persons}
                         clicked={this.deletePersonHandler}
-                        changed={this.nameChangeHandler}
-                    />
-                   
-                </div>
-            );
+                        changed={this.nameChangeHandler}/>;
             // style.backgroundColor = 'red';
             // style[':hover'] = {
             //     backgroundColor:'salmon',
             //     color: 'black'
             // }
-            btnClass = classes.Red;
-        }
-
-        let assignedClasses = []; 
-        if(this.state.persons.length <=2){
-            assignedClasses.push(classes.red);
-        }
-        if(this.state.persons.length <=1){
-            assignedClasses.push(classes.bold);
         }
 
         return (
             
             <div className={classes.App}>
+                <Cockpit
+                    showPersons={this.state.showPersons}
+                    persons = {this.state.persons}
+                    clicked = {this.togglePersonsHandler} />
                 { /*Note 1*/ }
                 {persons}
                 
