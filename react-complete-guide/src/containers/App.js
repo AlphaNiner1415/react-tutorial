@@ -82,6 +82,7 @@ class App extends Component {
             
             <div className={classes.App}>
                 <Cockpit
+                    title={this.props.appTitle} //component props must be referred to using this keyword
                     showPersons={this.state.showPersons}
                     persons = {this.state.persons}
                     clicked = {this.togglePersonsHandler} />
