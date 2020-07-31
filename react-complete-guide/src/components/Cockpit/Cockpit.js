@@ -7,12 +7,13 @@ const cockpit = (props) => {
         //Is basically componentDidMount() and componentDidUpdate() in one
         console.log('[Cockpit.js] useEffect');
         //Can send http request
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             alert('Saved data to cloud');
         },1000);
         return () => {
+            clearTimeout(timer);
             console.log('[Cockpit.js] clean up work in useEffect');
-        }
+        };
         
     }, []); //Empty brackets means no dependencies for useEffect, so it will only run once at start, because there will be no dependency change to trigger it.
 
