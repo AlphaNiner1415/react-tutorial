@@ -2,6 +2,13 @@ import React, { useEffect } from 'react';
 
 import classes from './Cockpit.css'
 const cockpit = (props) => {
+    useEffect(() => {
+        //Runs every render cycle
+        console.log('[Cockpit.js] useEffect');
+        //Can send http request
+        //Is basically componentDidMount() and componentDidUpdate() in one
+    })
+
     let assignedClasses = [];
     let btnClass = '';
     if(props.showPersons){
