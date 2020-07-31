@@ -4,10 +4,14 @@ import classes from './Cockpit.css'
 const cockpit = (props) => {
     useEffect(() => {
         //Runs every render cycle
+        //Is basically componentDidMount() and componentDidUpdate() in one
         console.log('[Cockpit.js] useEffect');
         //Can send http request
-        //Is basically componentDidMount() and componentDidUpdate() in one
-    })
+        setTimeout(() => {
+            alert('Saved data to cloud');
+        },1000);
+        
+    }, [props.persons]); //Conditional, useEffect now only runs if person changes
 
     let assignedClasses = [];
     let btnClass = '';
