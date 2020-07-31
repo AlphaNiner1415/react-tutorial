@@ -23,7 +23,10 @@ class App extends Component {
         console.log('[App.js] get derived state from props', props);
         return state;
     }
-
+    //Now an unsafe method, and is used to do the same thing as getDerivedStateFromProps anyways so don't use it
+    componentWillMount() {
+        console.log('[App.js] componentWillMount');
+    }
     componentDidMount(){
         console.log('[App.js] componentDidMount');
     }
