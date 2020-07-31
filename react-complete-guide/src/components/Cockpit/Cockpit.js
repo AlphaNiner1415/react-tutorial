@@ -11,7 +11,7 @@ const cockpit = (props) => {
             alert('Saved data to cloud');
         },1000);
         
-    }, [props.persons]); //Conditional, useEffect now only runs if person changes
+    }, []); //Empty brackets means no dependencies for useEffect, so it will only run once at start, because there will be no dependency change to trigger it.
 
     let assignedClasses = [];
     let btnClass = '';
