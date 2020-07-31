@@ -4,7 +4,7 @@ class Persons extends Component {
     // static getDerivedStateFromProps(props,state){
     //     console.log('[Persons.js] getDerivedStateFromProps');
     //     return state; //Which is going to be an empty object
-    // }
+    // } this is rarely used
 
     shouldComponentUpdate(nextProps,nextState){
         console.log('[Persons.js] shouldComponentUpdate');
