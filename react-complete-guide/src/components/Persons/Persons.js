@@ -6,6 +6,10 @@ class Persons extends Component {
     //     return state; //Which is going to be an empty object
     // } this is rarely used
 
+    // componentWillReceiveProps(props){
+    //     console.log('[Persons.js] componentWillReceiveProps')
+    // }
+
     shouldComponentUpdate(nextProps,nextState){
         console.log('[Persons.js] shouldComponentUpdate');
         return true; //Should component update
@@ -15,6 +19,7 @@ class Persons extends Component {
         console.log('[Persons.js] getSnapshotBeforeUpdate');
         return {message: 'Snapshot!'}; //Then you can go ahead and use this in componentDidUpdate()
     }
+    //componentWillUpdate()
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(snapshot);
