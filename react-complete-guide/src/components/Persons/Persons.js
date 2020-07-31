@@ -13,7 +13,7 @@ class Persons extends Component {
 
     getSnapshotBeforeUpdate(prevProps, prevState){
         console.log('[Persons.js] getSnapshotBeforeUpdate');
-        return {message: 'Snapshot!'};
+        return {message: 'Snapshot!'}; //Then you can go ahead and use this in componentDidUpdate()
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -21,7 +21,7 @@ class Persons extends Component {
         console.log('[Persons.js] componentDidUpdate');
     }
 
-    
+
     render() {
         console.log('[Persons.js] rendering...');
         return this.props.persons.map((eachPerson, index) => {
