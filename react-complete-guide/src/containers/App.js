@@ -28,6 +28,15 @@ class App extends Component {
         console.log('[App.js] componentDidMount');
     }
 
+    shouldComponentUpdate(nextProps,nextState){
+        console.log('[App.js] shouldComponentUpdate');
+        return false;
+    }
+
+    componentDidUpdate(){
+        console.log('[App.js] componentDidUpdate');
+    }
+
     deletePersonHandler = (personIndex) => {
         const functionsPersons = this.state.persons.slice();
         //const functionsPersons = [...this.state.persons]; 'Spread operator'
