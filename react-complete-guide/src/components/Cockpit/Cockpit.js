@@ -11,11 +11,17 @@ const cockpit = (props) => {
             alert('Saved data to cloud');
         },1000);
         return () => {
-            console.log('[Cockpit.js] clean up work');
+            console.log('[Cockpit.js] clean up work in useEffect');
         }
         
     }, []); //Empty brackets means no dependencies for useEffect, so it will only run once at start, because there will be no dependency change to trigger it.
 
+    useEffect(() => {
+        console.log('[Cockpit.js] 2nd useEffect');
+        return () => {
+            console.log('[Cockpit.js] clean up work in 2nd useEffect');
+        }
+    });
     let assignedClasses = [];
     let btnClass = '';
     if(props.showPersons){
