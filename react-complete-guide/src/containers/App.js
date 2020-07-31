@@ -9,17 +9,17 @@ class App extends Component {
     constructor(props){
         super(props);
         console.log('[App.js] constructor');
-        this.state = { //State is only available in components that extends React.Component not the function components
-            persons: [
-                { id: 'askdf', name: 'Anon', age: 19 },
-                { id: 'jk;jii', name: 'Dad', age: 50 },
-                { id: 'nkhgi', name: 'Non', age: 19 }
-            ],
-            otherState: 'some other value',
-            showPersons: false
-        }
+        
     }
-    
+    state = { //State is only available in components that extends React.Component not the function components
+        persons: [
+            { id: 'askdf', name: 'Anon', age: 19 },
+            { id: 'jk;jii', name: 'Dad', age: 50 },
+            { id: 'nkhgi', name: 'Non', age: 19 }
+        ],
+        otherState: 'some other value',
+        showPersons: false
+    }
 
     deletePersonHandler = (personIndex) => {
         const functionsPersons = this.state.persons.slice();
