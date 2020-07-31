@@ -20,12 +20,15 @@ class Persons extends Component {
         return {message: 'Snapshot!'}; //Then you can go ahead and use this in componentDidUpdate()
     }
     //componentWillUpdate()
-
+    
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(snapshot);
         console.log('[Persons.js] componentDidUpdate');
     }
 
+    componentWillUnmount(){
+        console.log('[Persons.js] componentWillUnmount');
+    }
 
     render() {
         console.log('[Persons.js] rendering...');

@@ -10,6 +10,9 @@ const cockpit = (props) => {
         setTimeout(() => {
             alert('Saved data to cloud');
         },1000);
+        return () => {
+            console.log('[Cockpit.js] clean up work');
+        }
         
     }, []); //Empty brackets means no dependencies for useEffect, so it will only run once at start, because there will be no dependency change to trigger it.
 
