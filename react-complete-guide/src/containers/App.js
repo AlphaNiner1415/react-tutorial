@@ -6,10 +6,9 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 //Stateful component, try to have as less of these as possible.
 class App extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         console.log('[App.js] constructor');
-        
     }
     state = { //State is only available in components that extends React.Component not the function components
         persons: [
@@ -19,6 +18,14 @@ class App extends Component {
         ],
         otherState: 'some other value',
         showPersons: false
+    }
+    static getDerivedStateFromProps(props, state){
+        console.log('[App.js] get derived state from props', props);
+        return state;
+    }
+
+    componentDidMount(){
+        console.log('[App.js] componentDidMount');
     }
 
     deletePersonHandler = (personIndex) => {
@@ -68,6 +75,7 @@ class App extends Component {
     }
 
     render() {
+        console.log('[App.js] render');
         let persons = null;
     
         if ( this.state.showPersons ){

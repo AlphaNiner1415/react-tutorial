@@ -4,6 +4,7 @@ import classes from './Person.css';
 
 //Finished, no need to split into smaller components
 const person = (props) => {
+  console.log('[Person.js] rendering....');
   return (
     
     // <div title= {props.name} className="Person" style={style}>
