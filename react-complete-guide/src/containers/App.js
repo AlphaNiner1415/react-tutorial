@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
 
 //Stateful component, try to have as less of these as possible.
 class App extends Component {
@@ -83,7 +84,7 @@ class App extends Component {
 
         return (
             
-            <div className={classes.App}>
+            <WithClass classes={classes.App}>
                 <button onClick={() => {
                     this.setState({ showCockpit: false });
                     }}
@@ -100,7 +101,7 @@ class App extends Component {
                
                 {persons}
                 
-            </div>
+            </WithClass>
             /* Note 1: Similar to typing () => return this.switchNameHandler() alternately you can just wrap the return  in {} and put a function inside*/ 
             /* Note 1: basically passing in a function that waits to be executed and returns the result of this.switchNameHandler() when executed This way is inefficient though, best to stick with the one four lines down*/ 
 
