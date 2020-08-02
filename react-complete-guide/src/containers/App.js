@@ -101,7 +101,6 @@ class App extends Component {
                     ) : null}
                
                 {persons}
-                
             </Aux>
             /* Note 1: Similar to typing () => return this.switchNameHandler() alternately you can just wrap the return  in {} and put a function inside*/ 
             /* Note 1: basically passing in a function that waits to be executed and returns the result of this.switchNameHandler() when executed This way is inefficient though, best to stick with the one four lines down*/ 
@@ -112,5 +111,5 @@ class App extends Component {
     }
 }
 
-export default (App); //If we import the whole file we'll just be exporting class App
+export default withClass(App, classes.App); //If we import the whole file we'll just be exporting class App
 //Radium(App) Called a higher order component
