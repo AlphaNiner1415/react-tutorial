@@ -111,5 +111,4 @@ class App extends Component {
     }
 }
 
-export default withClass(App, classes.App); //If we import the whole file we'll just be exporting class App
-//Radium(App) Called a higher order component
+export default withClass(App, classes.App); //classes referring to the css module classes
