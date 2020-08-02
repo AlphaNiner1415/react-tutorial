@@ -10,6 +10,7 @@ class App extends Component {
         super(props);
         console.log('[App.js] constructor');
     }
+
     state = { //State is only available in components that extends React.Component not the function components
         persons: [
             { id: 'askdf', name: 'Anon', age: 19 },
@@ -44,27 +45,7 @@ class App extends Component {
         functionsPersons.splice(personIndex, 1); //You can do this
         this.setState({persons: functionsPersons})
     }
-    mouseEnterHandler = () => {
-        this.setState({
-            persons: [
-                { name: 'Anon', age: 19 },
-                { name: 'Dad', age: 49 },
-                { name: 'NON', age: 19 }
-            ]
-        })
-        console.log(this.state.persons[2]);
-        
-    }
-    mouseLeaveHandler = () => {
-        this.setState({
-            persons: [
-                { name: 'Anon', age: 19 },
-                { name: 'Dad', age: 49 },
-                { name: 'Anon', age: 19 }
-            ]
-        })
-    }
-    nameChangeHandler = (event, id ) => {
+    nameChangedHandler = (event, id ) => {
         const personIndex = this.state.persons.findIndex(p => {
             return p.id === id; 
         });
@@ -92,7 +73,7 @@ class App extends Component {
             persons = <Persons 
                         persons={this.state.persons}
                         clicked={this.deletePersonHandler}
-                        changed={this.nameChangeHandler}/>;
+                        changed={this.nameChangedHandler}/>;
             // style.backgroundColor = 'red';
             // style[':hover'] = {
             //     backgroundColor:'salmon',
