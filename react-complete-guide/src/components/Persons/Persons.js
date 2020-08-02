@@ -12,7 +12,13 @@ class Persons extends Component {
 
     shouldComponentUpdate(nextProps,nextState){
         console.log('[Persons.js] shouldComponentUpdate');
-        return true; //Should component update
+        if(nextProps.persons !== this.props.persons){ //Check if persons have changed; Note that this only checks if the pointer has changed though
+            //However in App.js, the changes to persons results in a new persons object being created
+            //That is why this check works
+            return true;
+        } else {
+            return false;
+        }
     }    
 
     getSnapshotBeforeUpdate(prevProps, prevState){

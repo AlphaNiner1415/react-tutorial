@@ -7,11 +7,10 @@ const cockpit = (props) => {
         //Is basically componentDidMount() and componentDidUpdate() in one
         console.log('[Cockpit.js] useEffect');
         //Can send http request
-        const timer = setTimeout(() => {
+        setTimeout(() => {
             alert('Saved data to cloud');
         },1000);
         return () => {
-            clearTimeout(timer);
             console.log('[Cockpit.js] clean up work in useEffect');
         };
         
