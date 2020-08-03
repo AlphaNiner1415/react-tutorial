@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Aux from "../../../hoc/Aux";
+import withClass from "../../../hoc/withClass";
 import classes from './Person.css';
 //    Dumb/ Presentational components because they have no internal logic or states.
 
@@ -28,4 +29,4 @@ class Person extends Component {
 }
 
 
-export default (Person);
+export default withClass(Person, classes.Person);
