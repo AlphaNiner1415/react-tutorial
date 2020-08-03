@@ -3,7 +3,7 @@
   background-color: #ffffff;
 }
 
-.red {
+/* .red {
   color: red;
 }
 
@@ -11,7 +11,7 @@
   font-weight: bold;
 }
 
-.App button { /* button now a tag selector meaning it will apply to every button inside app class*/
+.App button {  button now a tag selector meaning it will apply to every button inside app class
   background-color: green;
   color: white;
   font: inherit;
@@ -31,4 +31,4 @@
 }
 .App button.Red:hover {
   background-color: salmon;
-}
+} */

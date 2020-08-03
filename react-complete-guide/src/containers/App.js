@@ -42,13 +42,6 @@ class App extends Component {
         console.log('[App.js] componentDidUpdate');
     }
 
-    deletePersonHandler = (personIndex) => {
-        const functionsPersons = this.state.persons.slice();
-        //const functionsPersons = [...this.state.persons]; 'Spread operator'
-        functionsPersons.splice(personIndex, 1); //You can do this
-        this.setState({persons: functionsPersons})
-    }
-
     nameChangedHandler = (event, id ) => {
         const personIndex = this.state.persons.findIndex(p => {
             return p.id === id; 
@@ -62,11 +55,20 @@ class App extends Component {
         const persons2 = [...this.state.persons];
         persons2[personIndex] = templatePerson;
         
-        this.setState({
-            persons: persons2, 
-            changeCounter: this.state.changeCounter + 1
+        this.setState((prevState, props) => {
+            return {
+                persons: persons2,
+                changeCounter: prevState.changeCounter + 1
+            }; 
         });
     };
+
+    deletePersonHandler = (personIndex) => {
+        const functionsPersons = this.state.persons.slice();
+        //const functionsPersons = [...this.state.persons]; 'Spread operator'
+        functionsPersons.splice(personIndex, 1); //You can do this
+        this.setState({ persons: functionsPersons })
+    }
 
     togglePersonsHandler = () => {
         const doesShow = this.state.showPersons;
@@ -78,15 +80,13 @@ class App extends Component {
         let persons = null;
     
         if ( this.state.showPersons ){
-            persons = <Persons 
-                        persons={this.state.persons}
-                        clicked={this.deletePersonHandler}
-                        changed={this.nameChangedHandler}/>;
-            // style.backgroundColor = 'red';
-            // style[':hover'] = {
-            //     backgroundColor:'salmon',
-            //     color: 'black'
-            // }
+            persons = (
+                <Persons 
+                    persons={this.state.persons}
+                    clicked={this.deletePersonHandler}
+                    changed={this.nameChangedHandler} 
+                />
+            );
         }
 
         return (
@@ -98,13 +98,14 @@ class App extends Component {
                 >
                     Remove Cockpit
                 </button>
-                {this.state.showCockpit ? (<Cockpit
-                    title={this.props.appTitle} //component props must be referred to using this keyword
-                    showPersons={this.state.showPersons}
-                    personsLength={this.state.persons.length}
-                    clicked={this.togglePersonsHandler} 
+                {this.state.showCockpit ? (
+                    <Cockpit
+                        title={this.props.appTitle} //component props must be referred to using this keyword
+                        showPersons={this.state.showPersons}
+                        personsLength={this.state.persons.length}
+                        clicked={this.togglePersonsHandler} 
                     />
-                    ) : null}
+                ) : null}
                
                 {persons}
             </Aux>
