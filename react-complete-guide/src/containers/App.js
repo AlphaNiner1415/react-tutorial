@@ -15,7 +15,7 @@ class App extends Component {
 
     state = { //State is only available in components that extends React.Component not the function components
         persons: [
-            { id: 'askdf', name: 'Anon', age: "19" },
+            { id: 'askdf', name: 'Anon', age: 19 },
             { id: 'jk;jii', name: 'Dad', age: 50 },
             { id: 'nkhgi', name: 'Non', age: 19 }
         ],
