@@ -21,7 +21,8 @@ class App extends Component {
         ],
         otherState: 'some other value',
         showPersons: false,
-        showCockpit: true
+        showCockpit: true,
+        changeCounter: 0
     }
     static getDerivedStateFromProps(props, state){
         console.log('[App.js] get derived state from props', props);
@@ -47,6 +48,7 @@ class App extends Component {
         functionsPersons.splice(personIndex, 1); //You can do this
         this.setState({persons: functionsPersons})
     }
+
     nameChangedHandler = (event, id ) => {
         const personIndex = this.state.persons.findIndex(p => {
             return p.id === id; 
@@ -60,8 +62,12 @@ class App extends Component {
         const persons2 = [...this.state.persons];
         persons2[personIndex] = templatePerson;
         
-        this.setState( {persons: persons2} )
-    }
+        this.setState({
+            persons: persons2, 
+            changeCounter: this.state.changeCounter + 1
+        });
+    };
+
     togglePersonsHandler = () => {
         const doesShow = this.state.showPersons;
         this.setState({showPersons: !doesShow});
