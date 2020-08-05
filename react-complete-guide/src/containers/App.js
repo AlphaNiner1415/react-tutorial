@@ -5,6 +5,7 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 import withClass from "../hoc/withClass";
 import Aux from "../hoc/Aux";
+import AuthContext from "../context/auth-context";
 
 //Stateful component, try to have as less of these as possible.
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
     showPersons: false,
     showCockpit: true,
     changeCounter: 0,
+    authenticated: false
   };
   static getDerivedStateFromProps(props, state) {
     console.log("[App.js] get derived state from props", props);
@@ -102,16 +104,19 @@ class App extends Component {
         >
           Remove Cockpit
         </button>
-        {this.state.showCockpit ? (
-          <Cockpit
-            title={this.props.appTitle} //component props must be referred to using this keyword
-            showPersons={this.state.showPersons}
-            personsLength={this.state.persons.length}
-            clicked={this.togglePersonsHandler}
-          />
-        ) : null}
+        <AuthContext.Provider value={{authenticated: this.state.authenticated, login: this.loginHandler}}>
+          {this.state.showCockpit ? (
+            <Cockpit
+              title={this.props.appTitle} //component props must be referred to using this keyword
+              showPersons={this.state.showPersons}
+              personsLength={this.state.persons.length}
+              clicked={this.togglePersonsHandler}
+              login={this.loginHandler}
+            />
+          ) : null}
 
-        {persons}
+          {persons}
+        </AuthContext.Provider>
       </Aux>
       /* Note 1: Similar to typing () => return this.switchNameHandler() alternately you can just wrap the return  in {} and put a function inside*/
       /* Note 1: basically passing in a function that waits to be executed and returns the result of this.switchNameHandler() when executed This way is inefficient though, best to stick with the one four lines down*/

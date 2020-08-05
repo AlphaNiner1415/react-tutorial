@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 
 import Person from "./Person/Person";
 
+
 class Persons extends PureComponent {
   // static getDerivedStateFromProps(props,state){
   //     console.log('[Persons.js] getDerivedStateFromProps');
@@ -50,7 +51,7 @@ class Persons extends PureComponent {
           age={eachPerson.age}
           key={eachPerson.id}
           changed={(event) => this.props.changed(event, eachPerson.id)}
-        /> //Keys help react know what to render easily without having to inspect deeply inside one element
+        /> 
       );
     });
   }
