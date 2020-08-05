@@ -28,13 +28,12 @@ class Person extends Component {
       <Aux>
         {this.context.authenticated ? (
           <div>
-            <p>Authenticated</p>
             <p key="i1" onClick={this.props.click}>
               I'm {this.props.name} and I am {this.props.age} years old!!!
             </p>
           </div>
         ) : (
-          <p>Please Login!</p>
+          <p></p>
         )}
         <p key="i2">{this.props.children}</p>
         <input

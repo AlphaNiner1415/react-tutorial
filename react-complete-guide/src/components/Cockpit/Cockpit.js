@@ -34,7 +34,11 @@ const cockpit = (props) => {
   if (props.showPersons) {
     btnClass = classes.Red;
   }
-
+  const authStyle = {
+    fontWeight: "bold",
+    color: 'green'
+    
+  };
   if (props.personsLength <= 2) {
     assignedClasses.push(classes.red);
   }
@@ -45,12 +49,15 @@ const cockpit = (props) => {
     <div className={classes.Cockpit}>
       <h1>{props.title}</h1> {/*One root element per component is typical */}
       <p className={assignedClasses.join(" ")}>This is really working!!</p>
+      {authContext.authenticated ? (
+        <p style={authStyle}>Authenticated</p>
+      ) : (
+        <p className={classes.red}>Please Login!</p>
+      )}
       <button ref={toggleBtnRef} className={btnClass} onClick={props.clicked}>
         Toggle Persons
       </button>
-      
-        {<button onClick={authContext.login}>Log In</button>}
-      
+      {<button onClick={authContext.login}>Log In</button>}
     </div>
   );
 };
