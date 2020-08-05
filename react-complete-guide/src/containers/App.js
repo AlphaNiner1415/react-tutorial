@@ -80,6 +80,10 @@ class App extends Component {
     const doesShow = this.state.showPersons;
     this.setState({ showPersons: !doesShow });
   };
+  
+  loginHandler = () => {
+    this.setState({authenticated: true})
+  };
 
   render() {
     console.log("[App.js] render");
@@ -104,14 +108,19 @@ class App extends Component {
         >
           Remove Cockpit
         </button>
-        <AuthContext.Provider value={{authenticated: this.state.authenticated, login: this.loginHandler}}>
+        <AuthContext.Provider 
+          value={{
+            authenticated: this.state.authenticated, 
+            login: this.loginHandler
+            }}
+        >
+
           {this.state.showCockpit ? (
             <Cockpit
               title={this.props.appTitle} //component props must be referred to using this keyword
               showPersons={this.state.showPersons}
               personsLength={this.state.persons.length}
               clicked={this.togglePersonsHandler}
-              login={this.loginHandler}
             />
           ) : null}
 
